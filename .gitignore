@@ -1,3 +1,3 @@
-frontend/nextbaseballapp/.next/*
+frontend/nextbaseballapp/.next/
 env/*
-frontend/nextbaseballapp/node_modules/*
+frontend/nextbaseballapp/node_modules/
