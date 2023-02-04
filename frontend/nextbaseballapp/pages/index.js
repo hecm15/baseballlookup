@@ -1,6 +1,6 @@
 import { Grid, Typography } from '@mui/material';
 import {useState, useEffect} from "react";
-import styles from "../../styles/Home.module.css" 
+import styles from "../styles/Home.module.css" 
 import stylesMUI from '../utils/stylesMUI';
 import NavBar from '../components/NavBar';
 import navDrawer from '../components/NavDrawer';
