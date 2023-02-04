@@ -70,7 +70,7 @@ export default function NavBar(props){
 
 
                         <Grid item xs={6} textAlign="center" justifyContent={"center"} alignItems="center">
-                            <Typography variant="siteHeaderMobile" fontFamily={"Poppins"} component={Link} href={"/landing"}>
+                            <Typography variant="siteHeaderMobile" fontFamily={"Poppins"} component={Link} href={"/"}>
                                 Baseball LookUp
                             </Typography>
                         </Grid>
@@ -89,7 +89,7 @@ export default function NavBar(props){
                 <Toolbar disableGutters>
                     <Grid container sx={{height : "100%", width: "100%"}}>
                         <Grid item md={4} align="center">
-                            <Typography variant="siteHeaderDesktop" component={Link} href="/landing">
+                            <Typography variant="siteHeaderDesktop" component={Link} href="/">
                                 Baseball LookUp
                             </Typography>
                         </Grid>
