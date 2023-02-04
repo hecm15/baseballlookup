@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const LOCAL_URL = 'http://127.0.0.1:8080/api'
+const LOCAL_URL = 'https://baseballlookup-production.up.railway.app/api'
 //const HOSTED_URL = url when we host on heroku
 const CURRENT_URL = LOCAL_URL;
 
