@@ -299,26 +299,25 @@ def teams(request):
         return JsonResponse(serialized.data, safe=False)
 
 # API endpoint, should return manager general info
-managers_annotated = Players.objects.annotate(fullname=Concat('namefirst', Value(' ') ,'namelast', output_field=TextField()))
+
 def manager_options(request):
     if request.method == 'GET':
         nameparam = request.GET
         managername = nameparam['name']
 
-        possible_managers = managers_annotated.filter(fullname__icontains=managername)
+        possible_managers = players_annotated.filter(fullname__icontains=managername)
 
         manager_options = []
 
         for manager in possible_managers:
-            # if Managers.objects.filter(playerid=manager.playerid):
-            if manager.namefirst and manager.namelast:
-                name = manager.fullname
-                playerid = manager.playerid
-                manager_options.append(ManagerOptions(name, playerid))
-                # else:
-                #     continue
+            if Managers.objects.filter(playerid=manager.playerid):
+                if manager.namefirst and manager.namelast:
+                    name = manager.fullname
+                    playerid = manager.playerid
+                else:
+                    continue
 
-                # manager_options.append(ManagerOptions(name, playerid))
+                manager_options.append(ManagerOptions(name, playerid))
 
         
 
