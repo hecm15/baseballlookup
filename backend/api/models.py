@@ -7,6 +7,21 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
+class Managers(models.Model):
+    playerid = models.TextField(db_column='playerID')  # Field name made lowercase.
+    yearid = models.TextField(db_column='yearID', blank=True)  # Field name made lowercase.
+    teamid = models.TextField(db_column='teamID', blank=True)  # Field name made lowercase.
+    lgid = models.TextField(db_column='lgID', blank=True)  # Field name made lowercase.
+    inseason = models.TextField(blank=True)
+    g = models.TextField(db_column='G', blank=True)  # Field name made lowercase.
+    w = models.TextField(db_column='W', blank=True)  # Field name made lowercase.
+    l = models.TextField(db_column='L', blank=True)  # Field name made lowercase.
+    rank = models.TextField(blank=True)
+    plyrmgr = models.TextField(db_column='plyrMgr', blank=True)  # Field name made lowercase.
+
+    class Meta:
+        # managed = False
+        db_table = 'Managers'
 
 class Teams(models.Model):
     yearid = models.TextField(db_column='yearID', blank=True)  # Field name made lowercase.
@@ -87,9 +102,10 @@ class Players(models.Model):
     finalgame = models.TextField(db_column='finalGame', blank=True)  # Field name made lowercase.
     retroid = models.TextField(db_column='retroID', blank=True)  # Field name made lowercase.
     bbrefid = models.TextField(db_column='bbrefID', blank=True)  # Field name made lowercase.
-
+    manager = models.ForeignKey(Managers, on_delete=models.CASCADE, null=True)
+    
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'Players'
 
 
@@ -271,19 +287,3 @@ class Fieldingstatspost(models.Model):
     class Meta:
         managed = False
         db_table = 'FieldingStatsPost'
-
-class Managers(models.Model):
-    playerid = models.TextField(db_column='playerID')  # Field name made lowercase.
-    yearid = models.TextField(db_column='yearID', blank=True)  # Field name made lowercase.
-    teamid = models.TextField(db_column='teamID', blank=True)  # Field name made lowercase.
-    lgid = models.TextField(db_column='lgID', blank=True)  # Field name made lowercase.
-    inseason = models.TextField(blank=True)
-    g = models.TextField(db_column='G', blank=True)  # Field name made lowercase.
-    w = models.TextField(db_column='W', blank=True)  # Field name made lowercase.
-    l = models.TextField(db_column='L', blank=True)  # Field name made lowercase.
-    rank = models.TextField(blank=True)
-    plyrmgr = models.TextField(db_column='plyrMgr', blank=True)  # Field name made lowercase.
-
-    class Meta:
-        managed = False
-        db_table = 'Managers'
