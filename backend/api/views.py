@@ -310,11 +310,11 @@ def manager_options(request):
         manager_options = []
 
         for manager in possible_managers:
-            if Managers.objects.filter(playerid=manager.playerid):
-                if manager.namefirst and manager.namelast:
-                    name = manager.fullname
-                    playerid = manager.playerid
-                    manager_options.append(ManagerOptions(name, playerid))
+            # if Managers.objects.filter(playerid=manager.playerid):
+            if manager.namefirst and manager.namelast:
+                name = manager.fullname
+                playerid = manager.playerid
+                manager_options.append(ManagerOptions(name, playerid))
                 # else:
                 #     continue
 
