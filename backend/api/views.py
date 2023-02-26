@@ -305,7 +305,7 @@ def manager_options(request):
         nameparam = request.GET
         managername = nameparam['name']
 
-        possible_managers = players_annotated.filter(fullname__icontains=managername)
+        possible_managers = managers_annotated.filter(fullname__icontains=managername)
 
         manager_options = []
 
